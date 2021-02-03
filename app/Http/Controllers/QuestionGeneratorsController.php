@@ -17,7 +17,7 @@ class QuestionGeneratorsController extends Controller
     public function generate (Request $request) {
         $words = Word::query()->where('is_deleted', false)->get()->toArray();
         $randInd = rand(0, count($words)) + 1;
-        $word = words[$randInd];
+        $word = $words[$randInd];
         $words = explode("", $word);
         $data = new Question();
         $data->word_id = $randInd;

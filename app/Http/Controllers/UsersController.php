@@ -27,7 +27,7 @@ class UsersController extends Controller
         if ($request->user_type == "PLAYER") {
             $data->password = Hash::make("player123");
         } else {
-            $data->password = $request->password;
+            $data->password = Hash::make($request->password);
         }
         $data->created_at = new \DateTime();
 
