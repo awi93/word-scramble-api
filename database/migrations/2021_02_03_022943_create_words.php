@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVwUserPoints extends Migration
+class CreateWords extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateVwUserPoints extends Migration
      */
     public function up()
     {
-        Schema::create('vw_user_points', function (Blueprint $table) {
-            $table->id();
+        Schema::create('words', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->string('word')->unique();
             $table->timestamps();
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
         });
     }
 
@@ -26,6 +29,6 @@ class CreateVwUserPoints extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vw_user_points');
+        Schema::dropIfExists('words');
     }
 }

@@ -6,10 +6,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Question extends Model
 {
     use Timestamp;
 
-    protected $table = "users";
+    protected $table = "questions";
 
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserPoints extends Migration
+class CreateQuestions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateUserPoints extends Migration
      */
     public function up()
     {
-        Schema::create('user_points', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
+            $table->integer('word_id');
+            $table->string('scrambled')->nullable(false);
             $table->timestamps();
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
         });
     }
 
@@ -26,6 +30,6 @@ class CreateUserPoints extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_points');
+        Schema::dropIfExists('questions');
     }
 }
