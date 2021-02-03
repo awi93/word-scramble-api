@@ -21,7 +21,7 @@ class CreateQuestions extends Migration
             $table->string('created_by')->nullable(true);
             $table->string('updated_by')->nullable(true);
 
-            $table->foreign('word_id')->on('questions')->references('id')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('word_id')->on('words')->references('id')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
