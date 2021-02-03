@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\Word;
 use App\Util\QueryUtil;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class WordsController extends Controller
 {
@@ -37,7 +38,7 @@ class WordsController extends Controller
         if ($request->user()->user_type != "ADMIN") abort(401);
 
         $this->validate($request, [
-            "word" => "required|unique"
+            "word" => "required|unique:words"
         ]);
 
         $data = new Word();
@@ -60,7 +61,10 @@ class WordsController extends Controller
             abort(404);
 
         $this->validate($request, [
-            "word" => "required|unique"
+            "word" => [
+                "required",
+                Rule::unique("words")->ignore($id, "id")
+            ]
         ]);
 
         $data = new Word();

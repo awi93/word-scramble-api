@@ -18,7 +18,7 @@ class QuestionGeneratorsController extends Controller
         $words = Word::query()->where('is_deleted', false)->get()->toArray();
         $randInd = rand(0, count($words)) + 1;
         $word = $words[$randInd];
-        $words = explode("", $word);
+        $words = explode("", $word["word"]);
         $data = new Question();
         $data->word_id = $randInd;
         $data->scrambled = ShuffleUtil::shuffle($words);
