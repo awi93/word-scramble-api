@@ -14,13 +14,13 @@
 */
 
 $router->get('/scoreboards', 'ScoreboardsController@index');
+$router->post('/users', 'UsersController@store');
 
 $router->group(['middleware' => 'auth'], function () use ($router) {
 
 
     $router->group(['prefix' => 'users'], function () use ($router) {
 
-        $router->post('/', 'UsersController@store');
         $router->put('/{id}', 'UsersController@update');
         $router->get('/{userId}/point', 'UserPointsController@show');
 
