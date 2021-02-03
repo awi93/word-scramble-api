@@ -9,7 +9,6 @@ use App\Models\Question;
 use App\Models\Word;
 use App\Util\ShuffleUtil;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Date;
 
 class QuestionGeneratorsController extends Controller
 {

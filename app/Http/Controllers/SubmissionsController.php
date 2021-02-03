@@ -7,7 +7,6 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use App\Models\Submission;
 use App\Models\UserPoint;
-use App\Models\Word;
 use App\Util\QueryUtil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +17,11 @@ class SubmissionsController extends Controller
     public function index (Request $request, $userId) {
         if ($request->user()->user_type != "ADMIN" && $request->user()->id != $userId) abort(401);
 
-        $datas = Word::query()->where('user_id', $userId);
+        $datas = Submission::query()->with([
+            'question' => function ($query) {
+                $query->with(['word']);
+            }
+        ])->where('user_id', $userId);
 
         $datas = QueryUtil::addOrderBy($request, $datas);
 
@@ -34,7 +37,11 @@ class SubmissionsController extends Controller
     public function show (Request $request, $userId, $id) {
         if ($request->user()->user_type != "ADMIN" && $request->user()->id != $userId) abort(401);
 
-        $data = Submission::query()->where('user_id', $userId)->find($id);
+        $data = Submission::query()->with([
+            'question' => function ($query) {
+                $query->with(['word']);
+            }
+        ])->where('user_id', $userId)->find($id);
         if ($data == null) abort(404);
 
         return response()->json($data);
