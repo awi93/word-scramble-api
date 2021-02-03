@@ -14,12 +14,12 @@ class ShuffleUtil
         {
             $j = rand(0, $i+1);
             $tmp = $words[$i];
-            $arr[$i] = $words[$j];
-            $arr[$j] = $tmp;
+            $words[$i] = $words[$j];
+            $words[$j] = $tmp;
         }
         $word = "";
         for($i = 0; $i < $n; $i++)
-            $word .= $arr[$i];
+            $word .= $words[$i];
         return $word;
     }
 
