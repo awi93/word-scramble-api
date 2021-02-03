@@ -3,13 +3,15 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Model;
-use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Notifications\Notifiable;
+use Laravel\Lumen\Auth\Authorizable;
+use Laravel\Passport\HasApiTokens;
 
-class User extends Model implements JWTSubject
+class User extends Model implements AuthenticatableContract
 {
-    use Notifiable,Timestamp;
+    use HasApiTokens, Authenticatable, Authorizable;
 
     protected $table = "users";
 

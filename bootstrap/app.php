@@ -19,7 +19,7 @@ date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 |
 */
 
-$app = new Laravel\Lumen\Application(
+$app = new \Dusterio\LumenPassport\Lumen7Application(
     dirname(__DIR__)
 );
 
@@ -90,15 +90,16 @@ $app->configure('app');
 | totally optional, so you are not required to uncomment this line.
 |
 */
-$app->register(App\Providers\AuthServiceProvider::class);
 
-// Add this line
-$app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
-
-
+// Enable auth middleware (shipped with Lumen)
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
 ]);
+
+// Finally register two service providers - original one and Lumen adapter
+$app->register(Laravel\Passport\PassportServiceProvider::class);
+$app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
@@ -109,6 +110,11 @@ $app->routeMiddleware([
 | can respond to, as well as the controllers that may handle them.
 |
 */
+
+use Dusterio\LumenPassport\LumenPassport;
+
+// Somewhere in your application service provider or bootstrap process
+LumenPassport::allowMultipleTokens();
 
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
