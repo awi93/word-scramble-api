@@ -15,10 +15,11 @@ class CreateSubmissions extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('user_id')->nullable(false);
+            $table->bigInteger('user_id')->nullable(false);
             $table->string('question_id')->nullable(false);
             $table->string('answer')->nullable(false);
             $table->integer('point')->nullable(false);
+            $table->boolean('is_true')->nullable(false)->default(false);
             $table->timestamps();
             $table->string('created_by')->nullable(true);
             $table->string('updated_by')->nullable(true);

@@ -3,13 +3,14 @@
 
 namespace App\Models;
 
-
-use Illuminate\Database\Eloquent\Model;
-
-class Word extends Model
+class Word extends UuidModel
 {
     use Timestamp;
 
     protected $table = "words";
+
+    public function questions () {
+        return $this->hasMany('App\Model\Question');
+    }
 
 }

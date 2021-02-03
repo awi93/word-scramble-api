@@ -13,6 +13,51 @@
 |
 */
 
+$router->get('/scoreboards', 'ScoreboardsController@index');
+
+$router->group(['middleware' => 'auth'], function () use ($router) {
+
+
+    $router->group(['prefix' => 'users'], function () use ($router) {
+
+        $router->post('/', 'UsersController@store');
+        $router->put('/{id}', 'UsersController@update');
+        $router->get('/{userId}/point', 'UserPointsController@show');
+
+        $router->group(['prefix' => "{userId}/submissions"], function () use ($router) {
+
+            $router->get('/', 'SubmissionsController@index');
+            $router->get('/{id}', 'SubmissionsController@show');
+            $router->post('/', 'SubmissionsController@store');
+
+        });
+
+    });
+
+    $router->group(['prefix' => 'words'], function () use ($router) {
+
+        $router->get('/', 'WordsController@index');
+        $router->get('/{id}', 'WordsController@show');
+        $router->post('/', 'WordsController@store');
+        $router->put('/{id}', 'WordsController@update');
+        $router->destroy('/{id}', 'WordsController@destroy');
+
+    });
+
+    $router->group(['prefix' => '/questions'], function () use ($router) {
+
+        $router->get('/{id}', 'QuestionsController@show');
+
+    });
+
+    $router->group(['prefix' => '/new-questions'], function () use ($router) {
+
+        $router->get('/', 'QuestionGeneratorsController@generate');
+
+    });
+
+});
+
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });

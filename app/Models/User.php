@@ -15,23 +15,16 @@ class User extends Model implements AuthenticatableContract
 
     protected $table = "users";
 
-    /**
-     * Get the identifier that will be stored in the subject claim of the JWT.
-     *
-     * @return mixed
-     */
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
+    public function submissions () {
+        return $this->hasMany('App\Model\Submission');
     }
 
-    /**
-     * Return a key value array, containing any custom claims to be added to the JWT.
-     *
-     * @return array
-     */
-    public function getJWTCustomClaims()
-    {
-        return [];
+    public function user_points () {
+        return $this->hasMany('App\Models\UserPoint');
     }
+
+    public function user_point () {
+        return $this->hasOne('App\Model\VwUserPoint');
+    }
+
 }

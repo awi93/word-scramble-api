@@ -15,7 +15,7 @@ class CreateUserPoints extends Migration
     {
         Schema::create('user_points', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->integer('point');
             $table->string('ref_id');
             $table->string('ref_type');

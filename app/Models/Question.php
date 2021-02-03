@@ -4,12 +4,14 @@
 namespace App\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
-
-class Question extends Model
+class Question extends UuidModel
 {
     use Timestamp;
 
     protected $table = "questions";
+
+    public function word () {
+        return $this->belongsTo('App\Models\Word');
+    }
 
 }

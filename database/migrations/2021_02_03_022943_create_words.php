@@ -16,6 +16,7 @@ class CreateWords extends Migration
         Schema::create('words', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('word')->unique();
+            $table->boolean('is_deleted')->default(false)->nullable(false);
             $table->timestamps();
             $table->string('created_by')->nullable(true);
             $table->string('updated_by')->nullable(true);

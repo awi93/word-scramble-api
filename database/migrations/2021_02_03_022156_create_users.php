@@ -14,8 +14,8 @@ class CreateUsers extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('email')->nullable(false);
+            $table->bigIncrements('id')->primary();
+            $table->string('username')->nullable(false);
             $table->string('name')->nullable(false);
             $table->string('password')->nullable(false);
             $table->enum('user_type', ['PLAYER','ADMIN']);

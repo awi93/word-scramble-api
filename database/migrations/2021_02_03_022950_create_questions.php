@@ -15,11 +15,13 @@ class CreateQuestions extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->integer('word')->nullable(true);
+            $table->string('word_id')->nullable(false);
             $table->string('scrambled')->nullable(false);
             $table->timestamps();
             $table->string('created_by')->nullable(true);
             $table->string('updated_by')->nullable(true);
+
+            $table->foreign('word_id')->on('questions')->references('id')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
