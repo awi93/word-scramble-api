@@ -14,7 +14,7 @@ class CreateQuestions extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->stirng('id')->primary();
+            $table->string('id')->primary();
             $table->integer('word')->nullable(true);
             $table->string('scrambled')->nullable(false);
             $table->timestamps();
