@@ -40,7 +40,7 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
         $router->get('/{id}', 'WordsController@show');
         $router->post('/', 'WordsController@store');
         $router->put('/{id}', 'WordsController@update');
-        $router->destroy('/{id}', 'WordsController@destroy');
+        $router->delete('/{id}', 'WordsController@destroy');
 
     });
 

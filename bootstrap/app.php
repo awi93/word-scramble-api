@@ -60,6 +60,7 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -110,6 +111,7 @@ $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 | can respond to, as well as the controllers that may handle them.
 |
 */
+\Dusterio\LumenPassport\LumenPassport::routes($app);
 
 use Dusterio\LumenPassport\LumenPassport;
 
