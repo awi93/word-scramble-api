@@ -18,7 +18,7 @@ class CreateVwUserPoints extends Migration
             AS SELECT u.id as user_id,
                 COALESCE(point.point, 0::bigint) AS point
                FROM users u
-                LEFT JOIN (SELECT user_points.use_id,
+                LEFT JOIN (SELECT user_points.user_id,
                         sum(user_points.point) AS point
                         FROM user_points
                         GROUP BY user_points.user_id) point
