@@ -6,9 +6,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use App\Models\Submission;
+use App\Models\UserPoint;
 use App\Models\Word;
 use App\Util\QueryUtil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SubmissionsController extends Controller
 {
@@ -61,12 +63,29 @@ class SubmissionsController extends Controller
         $data->created_by = $request->user()->id;
         $data->created_at = new \DateTime();
 
+        DB::beginTransaction();
         if ($data->save()) {
-            return response()->json([
-                "id" => $data->id,
-                "data" => $data
-            ], 201);
-        } else abort(500);
+            $up = new UserPoint();
+            $up->user_id = $userId;
+            $up->point = $data->point;
+            $up->ref_id = $data->id;
+            $up->ref_type = "SUBMISSION";
+            $up->created_at = new \DateTime();
+            $up->created_by = $request->user()->id;
+            if ($data->save()) {
+                DB::commit();
+                return response()->json([
+                    "id" => $data->id,
+                    "data" => $data
+                ], 201);
+            } else {
+                DB::rollBack();
+                abort(500);
+            }
+        } else {
+            DB::rollBack();
+            abort(500);
+        }
     }
 
 }
