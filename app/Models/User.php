@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 use Laravel\Passport\HasApiTokens;
 
-class User extends Model implements AuthenticatableContract
+class User extends UuidModel implements AuthenticatableContract
 {
     use HasApiTokens, Authenticatable, Authorizable;
 
