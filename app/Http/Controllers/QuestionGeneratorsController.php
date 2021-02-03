@@ -19,8 +19,9 @@ class QuestionGeneratorsController extends Controller
         $randInd = rand(0, count($words)) + 1;
         $word = $words[$randInd];
         $words = str_split($word["word"],1);
+
         $data = new Question();
-        $data->word_id = $randInd;
+        $data->word_id = $word["id"];
         $data->scrambled = ShuffleUtil::shuffle($words);
         $data->created_by = $request->user()->id;
         $data->created_at = new \DateTime();
