@@ -6,7 +6,7 @@ namespace App\Models;
 
 trait Timestamp
 {
-    protected function serializeDate(DateTimeInterface $dateTime)
+    protected function serializeDate(\DateTimeInterface $dateTime)
     {
         if ($dateTime == null)
             return null;
