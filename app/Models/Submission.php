@@ -10,11 +10,11 @@ class Submission extends UuidModel {
     protected $table = "submissions";
 
     public function question () {
-        return $this->belongsTo('App\Model\Question');
+        return $this->belongsTo('App\Models\Question');
     }
 
     public function user () {
-        return $this->belongsTo('App\Model\User');
+        return $this->belongsTo('App\Models\User');
     }
 
 }

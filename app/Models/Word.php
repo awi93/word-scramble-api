@@ -10,7 +10,7 @@ class Word extends UuidModel
     protected $table = "words";
 
     public function questions () {
-        return $this->hasMany('App\Model\Question');
+        return $this->hasMany('App\Models\Question');
     }
 
 }

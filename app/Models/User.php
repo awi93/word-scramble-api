@@ -22,7 +22,7 @@ class User extends Model implements AuthenticatableContract
     }
 
     public function submissions () {
-        return $this->hasMany('App\Model\Submission');
+        return $this->hasMany('App\Models\Submission');
     }
 
     public function user_points () {
@@ -30,7 +30,7 @@ class User extends Model implements AuthenticatableContract
     }
 
     public function user_point () {
-        return $this->hasOne('App\Model\VwUserPoint');
+        return $this->hasOne('App\Models\VwUserPoint');
     }
 
 }
