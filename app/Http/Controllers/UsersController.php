@@ -14,7 +14,7 @@ class UsersController extends Controller
     public function store (Request $request) {
         $this->validate($request, [
             'username' => "required|email|unique:users",
-            'user_type' => 'required|in:PLAYER|ADMIN',
+            'user_type' => 'required|in:PLAYER,ADMIN',
             'name' => 'required',
             'password' => 'required_if:user_type,ADMIN'
         ]);
