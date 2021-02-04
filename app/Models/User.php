@@ -11,7 +11,7 @@ use Laravel\Passport\HasApiTokens;
 
 class User extends Model implements AuthenticatableContract
 {
-    use HasApiTokens, Authenticatable, Authorizable;
+    use HasApiTokens, Authenticatable, Authorizable, Timestamp;
 
     protected $hidden = ['password'];
 
