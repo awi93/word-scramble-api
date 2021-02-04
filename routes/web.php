@@ -15,6 +15,7 @@
 
 $router->get('/scoreboards', 'ScoreboardsController@index');
 $router->post('/users', 'UsersController@store');
+$router->get('/user-existencies', 'UserExistencesController@isExists');
 
 $router->group(['middleware' => 'auth'], function () use ($router) {
 
