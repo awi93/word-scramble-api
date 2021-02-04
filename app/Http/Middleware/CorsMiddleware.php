@@ -26,15 +26,24 @@ class CorsMiddleware
             'Access-Control-Allow-Headers'     => 'Content-Type, Authorization, X-Requested-With'
         ];
 
-        if ($request->isMethod('OPTIONS'))
-        {
+        if ($request->isMethod('OPTIONS')) {
             return response()->json('{"method":"OPTIONS"}', 200, $headers);
         }
 
         $response = $next($request);
-        foreach($headers as $key => $value)
-        {
-            $response->header($key, $value);
+        $IlluminateResponse = 'Illuminate\Http\Response';
+        $SymfonyResopnse = 'Symfony\Component\HttpFoundation\Response';
+
+        if ($response instanceof $IlluminateResponse) {
+            foreach ($headers as $key => $value) {
+                $response->header($key, $value);
+            }
+        }
+
+        if ($response instanceof $SymfonyResopnse) {
+            foreach ($headers as $key => $value) {
+                $response->headers->set($key, $value);
+            }
         }
 
         return $response;
