@@ -10,6 +10,11 @@ class Question extends UuidModel
 
     protected $table = "questions";
 
+    protected $casts = [
+        "created_by" => "string",
+        "updated_by" => "string",
+    ];
+
     public function word () {
         return $this->belongsTo('App\Models\Word');
     }

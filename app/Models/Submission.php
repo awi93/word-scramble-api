@@ -9,6 +9,11 @@ class Submission extends UuidModel {
 
     protected $table = "submissions";
 
+    protected $casts = [
+        "created_by" => "string",
+        "updated_by" => "string"
+    ];
+
     public function question () {
         return $this->belongsTo('App\Models\Question');
     }

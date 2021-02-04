@@ -9,6 +9,11 @@ class Word extends UuidModel
 
     protected $table = "words";
 
+    protected $casts = [
+        "created_by" => "string",
+        "updated_by" => "string"
+    ];
+
     public function questions () {
         return $this->hasMany('App\Models\Question');
     }
