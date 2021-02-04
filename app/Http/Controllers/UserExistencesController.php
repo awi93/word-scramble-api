@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tables\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserExistencesController extends Controller
