@@ -3,13 +3,23 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
+
+    public function me(Request $request) {
+        if ($request->user() == null)
+            abort(404);
+
+        $data = User::query();
+
+        $data = $data->find($request->user()->id);
+
+        return response()->json($data);
+    }
 
     public function store (Request $request) {
         $this->validate($request, [
