@@ -79,7 +79,7 @@ class SubmissionsController extends Controller
             $up->ref_type = "SUBMISSION";
             $up->created_at = new \DateTime();
             $up->created_by = $request->user()->id;
-            if ($data->save()) {
+            if ($up->save()) {
                 DB::commit();
                 return response()->json([
                     "id" => $data->id,
