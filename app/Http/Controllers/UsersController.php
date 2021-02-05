@@ -30,7 +30,7 @@ class UsersController extends Controller
         ]);
 
         $data = new User();
-        $data->username = $request->username;
+        $data->username = strtolower($request->username);
         $data->name = $request->name;
         $data->user_type = $request->user_type;
 

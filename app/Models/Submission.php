@@ -10,6 +10,7 @@ class Submission extends UuidModel {
     protected $table = "submissions";
 
     protected $casts = [
+        "user_id" => "integer",
         "created_by" => "string",
         "updated_by" => "string"
     ];

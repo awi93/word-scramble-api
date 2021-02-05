@@ -18,7 +18,7 @@ class User extends Model implements AuthenticatableContract
     protected $table = "users";
 
     public function findForPassport($susername) {
-        return $this->where('username', $susername)->first();
+        return $this->where('username', strtolower($susername))->first();
     }
 
     public function submissions () {
