@@ -12,7 +12,7 @@ class ShuffleUtil
 
         for($i = $n - 1; $i >= 0; $i--)
         {
-            $j = rand(0, $i+1);
+            $j = rand(0, $i);
             $tmp = $words[$i];
             $words[$i] = $words[$j];
             $words[$j] = $tmp;
