@@ -24,8 +24,7 @@ class InsertInitialWordData extends Migration
                  ('9fa2a537-c784-471a-bc02-a6f1565d0ebf','CAKE',NULL,NULL,NULL,NULL,false),
                  ('0d1e891e-a769-4be1-8c42-0da973e294f3','DRINK',NULL,NULL,NULL,NULL,false),
                  ('2d7a6140-2413-48d9-a647-b57d3ec01ef9','GINGER',NULL,NULL,NULL,NULL,false),
-                 ('4e294822-34ac-48ad-b300-bb23394bbe2f','VIDEO',NULL,NULL,NULL,NULL,false);
-            INSERT INTO public.words (id,word,created_at,updated_at,created_by,updated_by,is_deleted) VALUES
+                 ('4e294822-34ac-48ad-b300-bb23394bbe2f','VIDEO',NULL,NULL,NULL,NULL,false),
                  ('aea3adf2-8a27-4f5c-8a7a-1f726b906f38','ICE',NULL,NULL,NULL,NULL,false),
                  ('9d31a004-6933-4803-b978-f09e8f73e709','HELM',NULL,NULL,NULL,NULL,false),
                  ('f1fd4a0e-c8f4-48a1-8476-28a9634c967d','LIGHT',NULL,NULL,NULL,NULL,false),
@@ -35,8 +34,7 @@ class InsertInitialWordData extends Migration
                  ('2a04744d-f46f-4449-ad9a-264809d3175c','TEST',NULL,NULL,NULL,NULL,false),
                  ('216c565f-b640-45f2-8631-89e75ee3b2d8','RAPID',NULL,NULL,NULL,NULL,false),
                  ('c60455bc-f581-4de4-83bf-4351924e8cb5','CUPBOARD',NULL,NULL,NULL,NULL,false),
-                 ('150cada1-4643-4bb1-8528-f84ffe543579','UMBRELLA',NULL,NULL,NULL,NULL,false);
-            INSERT INTO public.words (id,word,created_at,updated_at,created_by,updated_by,is_deleted) VALUES
+                 ('150cada1-4643-4bb1-8528-f84ffe543579','UMBRELLA',NULL,NULL,NULL,NULL,false),
                  ('cd8c176a-df73-41ed-b6d9-60ab21987783','BAG',NULL,NULL,NULL,NULL,false),
                  ('bfd31710-3518-422d-8a83-229aba879b67','BACKPACK',NULL,NULL,NULL,NULL,false),
                  ('c6740e49-22ca-4419-a11d-f7ac60769a18','BOTTLE',NULL,NULL,NULL,NULL,false),
@@ -46,8 +44,7 @@ class InsertInitialWordData extends Migration
                  ('63d488dc-441b-4f7e-82cc-dcbc0105d32b','TABLE',NULL,NULL,NULL,NULL,false),
                  ('97c01df6-d650-4087-90f2-d912020d67df','CHAIR',NULL,NULL,NULL,NULL,false),
                  ('eeb1c89b-83b3-4abf-b09c-4445b081673e','TELEPHONE',NULL,NULL,NULL,NULL,false),
-                 ('3830a934-796f-4aea-b677-7b7e494a3d0c','EARPHONE',NULL,NULL,NULL,NULL,false);
-            INSERT INTO public.words (id,word,created_at,updated_at,created_by,updated_by,is_deleted) VALUES
+                 ('3830a934-796f-4aea-b677-7b7e494a3d0c','EARPHONE',NULL,NULL,NULL,NULL,false),
                  ('b6110b0d-38ed-4e91-ba55-832eaaba5990','JACKET',NULL,NULL,NULL,NULL,false),
                  ('7804ec6f-f988-47cf-a575-e0c08e639988','TENT',NULL,NULL,NULL,NULL,false),
                  ('ccce6767-ed26-4ae6-b196-66510261fb07','DRAWER',NULL,NULL,NULL,NULL,false),
@@ -57,8 +54,7 @@ class InsertInitialWordData extends Migration
                  ('bce6e4b6-51bd-4e5b-bad6-bde2767441cf','WALLET',NULL,NULL,NULL,NULL,false),
                  ('b9d676b9-e1bf-4930-bf73-b9e89e9c4617','WATCH',NULL,NULL,NULL,NULL,false),
                  ('66ffd591-a3b1-4898-8a1f-850e1dc11ebe','WALL',NULL,NULL,NULL,NULL,false),
-                 ('29c2530d-5141-408a-8179-8be8a5806f6e','WINDOW',NULL,NULL,NULL,NULL,false);
-            INSERT INTO public.words (id,word,created_at,updated_at,created_by,updated_by,is_deleted) VALUES
+                 ('29c2530d-5141-408a-8179-8be8a5806f6e','WINDOW',NULL,NULL,NULL,NULL,false),
                  ('44a56d7d-90e9-46ce-907b-bdde44238a2f','MEDICINE',NULL,NULL,NULL,NULL,false),
                  ('7f125e38-dda7-43a1-889f-9e51c4357da9','DOOR',NULL,NULL,NULL,NULL,false),
                  ('3ab6420d-8d83-4b55-86ee-596f107218df','GLASS',NULL,NULL,NULL,NULL,false),
